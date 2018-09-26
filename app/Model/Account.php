@@ -18,6 +18,7 @@ class Account extends Model
         'address',
         'status',
         'updated_at',
+        'password',
     ];
 
     public function orders()

@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['namespace' => 'Backend', 'as' => 'admin.', 'prefix' => '/admin'], function () {
+    Route::get('/', 'LoginController@index')->name('login');
+    Route::post('handleLogin', 'LoginController@handleLogin')->name('handleLogin');
+    Route::get('logout', 'LoginController@logout')->name('logout');
+});
+Route::group(['namespace' => 'Backend', 'as' => 'admin.', 'prefix' => '/admin', 'middleware' => ['web', 'checkLoginAdmin']], function () {
+    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+    Route::post('update', 'DashboardController@update')->name('update');
 });
