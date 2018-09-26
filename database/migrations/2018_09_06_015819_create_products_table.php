@@ -17,8 +17,8 @@ class CreateProductsTable extends Migration
             $table->increments('id')->unsigned();
             $table->string('namepd')->unique();
             $table->text('image');
-            $table->float('price',10,2)->unsigned();
-            $table->float('sale',10,2)->nullable()->unsigned();
+            $table->float('price', 10, 2)->unsigned();
+            $table->float('sale', 10, 2)->nullable()->unsigned();
             $table->tinyInteger('status')->default(1);
             $table->integer('qty')->unsigned();
             $table->integer('count')->nullable();

@@ -3,16 +3,16 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Model\CategoryProduct;
+use App\Model\Category;
 use App\Model\OrderDetail;
 
 class Product extends Model
 {
     protected $table = 'products';
 
-    public function category_product()
+    public function category()
     {
-        return $this->hasMany(CategoryProduct::class);
+        return $this->belongsTo(Category::class);
     }
     
     public function orderDetail()

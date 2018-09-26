@@ -3,14 +3,14 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Model\CategoryProduct;
+use App\Model\Product;
 
 class Category extends Model
 {
     protected $table = 'categories';
     
-    public function category_product()
+    public function product()
     {
-        return $this->hasMany(CategoryProduct::class);
+        return $this->hasMany(Product::class);
     }
 }
