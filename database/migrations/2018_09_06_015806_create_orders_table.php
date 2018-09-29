@@ -20,7 +20,7 @@ class CreateOrdersTable extends Migration
             $table->integer('shipping_id')->unsigned();
             $table->integer('payment_method_id')->unsigned();
             $table->integer('order_status_id')->unsigned();
-            $table->float('total_price',20,2)->unsigned();
+            $table->float('total_price', 20, 2)->unsigned();
             $table->string('address')->nullable();
             $table->string('ship_date')->nullable();
             $table->text('note')->nullable();
