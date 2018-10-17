@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateShippingTable extends Migration
+class AddEmailVerifiedAtToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateShippingTable extends Migration
      */
     public function up()
     {
-        Schema::create('shipping', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
-            $table->string('type')->unique();
-            $table->float('cost', 10, 2)->unsigned();
+        Schema::table('users', function (Blueprint $table) {
+            $table->timestamp('email_verified_at')->nullable()->after('status');
         });
     }
 
@@ -27,6 +25,8 @@ class CreateShippingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shipping');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('email_verified_at');
+        });
     }
 }

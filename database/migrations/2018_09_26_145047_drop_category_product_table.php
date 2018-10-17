@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateShippingTable extends Migration
+class DropCategoryProductTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,7 @@ class CreateShippingTable extends Migration
      */
     public function up()
     {
-        Schema::create('shipping', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
-            $table->string('type')->unique();
-            $table->float('cost', 10, 2)->unsigned();
-        });
+        Schema::dropIfExists('category_product');
     }
 
     /**
@@ -27,6 +23,6 @@ class CreateShippingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shipping');
+        //
     }
 }
